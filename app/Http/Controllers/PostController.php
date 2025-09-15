@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
-class PostController extends Controller
+class   PostController extends Controller
 {
     public function index()
     {
-        $post = Post::find(1);
-        dd($post);
-    }
+        $post = Post::where('is_published', 0)->first();
+        dump($post->title);
+        dd('end');
+        }
 }
