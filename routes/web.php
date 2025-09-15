@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/my_page', function () {
-    return 'Hello, World';
-});
+Route::get('/posts', 'PostController@index');
