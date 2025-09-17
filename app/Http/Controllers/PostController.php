@@ -60,4 +60,57 @@ class   PostController extends Controller
             $post->restore();
             dd('Данные восстановлены!');
         }
+
+
+        public function firstOrCreate() {
+            
+            $post = Post::find(1);
+
+            
+            $anotherPost = [
+                'title' => 'some post',
+                'content' => 'some content',
+                'image' => 'some imageblabla.jpg',
+                'likes' => 5000,
+                'is_published' => 1,
+            ];
+
+            $myPost = Post::firstOrCreate([
+                'title' => 'some title phpshtorm',
+            ],[
+                'title' => 'some title phpshtorm',
+                'content' => 'some content',
+                'image' => 'some imageblabla.jpg',
+                'likes' => 5000,
+                'is_published' => 1,
+            ]);
+
+            dd($post->content);
+            dd('finished');
+        }
+
+        public function updateOrCreate() {
+             $anotherPost = 
+             [
+                'title' => 'updateorcreate some post',
+                'content' => 'updateorcreate some content',
+                'image' => 'updateorcreate some imageblabla.jpg',
+                'likes' => 500,
+                'is_published' => 0,
+            ];
+
+            $post = Post::updateOrCreate([
+                'title' => 'some title not phpshtorm'
+            ],[
+                'title' => 'some title phpshtorm',
+                'content' => 'its no updateorcreate some content',
+                'image' => 'its no updateorcreate some imageblabla.jpg',
+                'likes' => 500,
+                'is_published' => 0,
+            ]);
+
+            dump($post->content);
+
+        }
+
 }

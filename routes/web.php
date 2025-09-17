@@ -25,3 +25,6 @@ Route::get('/posts/update', 'PostController@update');
 
 Route::get('/posts/delete', 'PostController@delete');
 
+Route::get('/posts/first_or_create', 'PostController@firstOrCreate');
+
+Route::get('/posts/update_or_create', 'PostController@updateOrCreate');
