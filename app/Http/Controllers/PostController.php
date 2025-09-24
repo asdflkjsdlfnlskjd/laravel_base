@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class   PostController extends Controller
 {
     public function index()
     {
-       
-        $posts = Post::all();
-        
-        return view('post.index', compact('posts'));
+
+        $categories = Category::find(1);
+
+        $post = Post::find(1);
+
+        dd($post->category);
+
+
+
+
+
+        // return view('post.index', compact('posts'));
 
         }
 

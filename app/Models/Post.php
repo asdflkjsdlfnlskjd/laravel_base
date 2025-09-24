@@ -11,4 +11,9 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = false;
+
+     public function category() {
+        return $this->belongsTo(Post::class, 'category_id', 'id');
+    }
+
 }

@@ -41,3 +41,4 @@ Route::get('/main', 'MainController@index')->name('main.index');
 Route::get('/contacts', 'ContactController@index')->name('contact.index');
 
 Route::get('/about', 'AboutController@index')->name('about.index');
+
