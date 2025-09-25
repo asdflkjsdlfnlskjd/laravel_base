@@ -5,21 +5,35 @@
         @csrf
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
-    <input type="text" name="title" class="form-control" id="title"  placeholder="title" >
+    <input value="{{old('title')}}" type="text" name="title" class="form-control" id="title"  placeholder="title" >
+    
+    @error('title')
+    <p class="text-danger" >{{$message}}</p>
+    @enderror
   </div>
    <div class="mb-3">
+
     <label for="content" class="form-label">Content</label>
-    <textarea class="form-control"  name="content" id="content"  placeholder="Content"></textarea>
+    <textarea class="form-control"  name="content" id="content"  placeholder="Content">{{old('content')}}</textarea>
+      @error('content')
+          <p class="text-danger" >{{$message}}</p>
+       @enderror
   </div>
    <div class="mb-3">
     <label for="image" class="form-label">Image</label>
-    <input type="text"  name="image" class="form-control" id="image"  placeholder="image" >
+    <input value="{{old('image')}}" type="text"  name="image" class="form-control" id="image"  placeholder="image" >
+    @error('image')
+        <p class="text-danger" >{{$message}}</p>
+     @enderror
   </div>
   <div class="mb-3">
       <label for="category" class="form-label">Category</label>
       <select id="disabledSelect" class="form-select" id="category" name="category_id" >
         @foreach($categories as $category)
-        <option value="{{$category->id}}" >{{$category->title}}</option>
+        <option 
+
+
+        value="{{$category->id}}" >{{$category->title}}</option>
         @endforeach
       </select>
       </div>
